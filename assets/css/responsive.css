@@ -1,0 +1,284 @@
+/* ==========================================================================
+   responsive.css - TABLET AND MOBILE ADJUSTMENTS
+   --------------------------------------------------------------------------
+   Everything here only applies below the listed screen widths. The desktop
+   design stays exactly as it is in layout.css and components.css.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Medium desktops (901px to 1219px)
+   Two cards per row, with the Upcoming Events card filling the second row.
+   -------------------------------------------------------------------------- */
+@media (min-width: 901px) and (max-width: 1219px) {
+  .home-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-grid > article:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .home-grid > article:nth-child(3) .event-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Large tablets / small laptops (1180px and below)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1180px) {
+  .map-layout {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+
+  .featured-card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Tablets (1024px and below)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .main-content {
+    padding: 20px 20px 40px;
+  }
+
+  .page-hero {
+    padding: 30px 32px;
+  }
+
+  .featured-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .featured-card__media {
+    min-height: 0;
+  }
+
+  .featured-card__media img {
+    position: static;
+    aspect-ratio: 16 / 8;
+    object-fit: cover;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Small tablets / large phones (900px and below)
+   The sidebar becomes a slide-in menu opened with the hamburger button.
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .app-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    bottom: 0;
+    z-index: 95;
+    width: 264px;
+    height: auto;
+    border-right: 1px solid var(--color-line);
+    box-shadow: var(--shadow-md);
+    transform: translateX(-105%);
+    transition: transform 0.25s ease;
+  }
+
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay.is-visible {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .home-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .directory-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .directory-detail {
+    position: static;
+  }
+
+  .map-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .floor-buttons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .site-footer__inner {
+    flex-direction: column;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Phones (720px and below)
+   -------------------------------------------------------------------------- */
+@media (max-width: 720px) {
+  .site-header {
+    padding: 10px 16px;
+  }
+
+  .site-header__school {
+    display: none;
+  }
+
+  .site-header__logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .main-content {
+    padding: 16px 16px 32px;
+  }
+
+  .page-hero {
+    padding: 26px 22px;
+    min-height: 0;
+    gap: 16px;
+    border-radius: 14px;
+  }
+
+  .page-hero__title {
+    font-size: 1.55rem;
+  }
+
+  .page-hero__subtitle {
+    font-size: 0.92rem;
+  }
+
+  .page-hero__art {
+    width: 76px;
+    height: 76px;
+    font-size: 2.2rem;
+  }
+
+  .card__header {
+    padding: 16px 18px 12px;
+  }
+
+  .card__body {
+    padding: 16px 18px 18px;
+  }
+
+  .featured-card__content {
+    padding: 20px;
+  }
+
+  .featured-card__title {
+    font-size: 1.24rem;
+  }
+
+  .search-panel {
+    padding: 14px;
+  }
+
+  .search-filter {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .directory-detail__body {
+    padding: 18px;
+  }
+
+  .detail-list__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+
+  .floor-viewer {
+    padding: 10px;
+  }
+
+  .floor-viewer__image {
+    max-height: 56vh;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Narrow phones (560px and below)
+   -------------------------------------------------------------------------- */
+@media (max-width: 560px) {
+  .site-header__tagline {
+    display: none;
+  }
+
+  .site-header__avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 0.72rem;
+  }
+
+  .home-grid,
+  .announcement-grid,
+  .faq-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page-hero__art {
+    display: none;
+  }
+
+  .page-hero__actions .button {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-button {
+    flex: 1 1 auto;
+  }
+
+  .floor-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .faq-question {
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+
+  .faq-answer__inner {
+    padding: 0 16px 16px;
+  }
+
+  .sample-note {
+    font-size: 0.8rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Very narrow phones (380px and below)
+   -------------------------------------------------------------------------- */
+@media (max-width: 380px) {
+  .site-header__name {
+    font-size: 1rem;
+  }
+
+  .page-hero__title {
+    font-size: 1.35rem;
+  }
+
+  .search-field {
+    flex-basis: 100%;
+  }
+}
